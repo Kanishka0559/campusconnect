@@ -7,7 +7,7 @@ function Navbar() {
       <h1>CampusConnect</h1>
 
       <div className="nav-links">
-        <Link to="/">Home</Link>
+        
         <Link to="/login">Login</Link>
         <Link to="/register">Register</Link>
       </div>
