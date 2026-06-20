@@ -1,15 +1,18 @@
-import './App.css';
-import Navbar from './components/Navbar';
+import { Link } from "react-router-dom";
+import "./Navbar.css";
 
-function App() {
+function Navbar() {
   return (
-    <>
-      <Navbar />
+    <nav className="navbar">
+      <h1>CampusConnect</h1>
 
-      <h1>Welcome to DevConnect</h1>
-      <p>Connect. Learn. Grow.</p>
-    </>
+      <div className="nav-links">
+        <Link to="/">Home</Link>
+        <Link to="/login">Login</Link>
+        <Link to="/register">Register</Link>
+      </div>
+    </nav>
   );
 }
 
-export default App;
+export default Navbar;
