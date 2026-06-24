@@ -1,14 +1,19 @@
-import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
+
       <Navbar />
 
-      <h2>Welcome to CampusConnect</h2>
-      <p>Connect. Learn. Grow.</p>
-    </>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+
+    </BrowserRouter>
   );
 }
 

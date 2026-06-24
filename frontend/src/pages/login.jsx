@@ -1,7 +1,14 @@
 function Login() {
   return (
-    <div>
-      <h2>Login</h2>
+    <div className="form-container">
+      <div className="card">
+        <h1>Login</h1>
+
+        <input type="email" placeholder="Email" />
+        <input type="password" placeholder="Password" />
+
+        <button>Login</button>
+      </div>
     </div>
   );
 }

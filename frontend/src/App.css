@@ -6,7 +6,7 @@ body {
 }
 
 h1 {
-  color: #f4f7fc;
+  color: #0a5ceb;
   font-family: Times New Roman;
   font-size: 48px;
   font-weight: bold;
@@ -43,4 +43,20 @@ nav a {
 nav a:hover {
   color: #dc2626;
   
+}
+
+.home,
+.login,
+.register {
+  margin-top: 50px;
+}
+
+input {
+  padding: 10px;
+  width: 250px;
+}
+
+button {
+  padding: 10px 20px;
+  cursor: pointer;
 }

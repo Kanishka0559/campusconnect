@@ -4,13 +4,21 @@ import "./Navbar.css";
 function Navbar() {
   return (
     <nav className="navbar">
-      <h1>CampusConnect</h1>
 
-      <div className="nav-links">
-        
+      <div className="logo">
+        🎓 CampusConnect
+      </div>
+
+      <div className="nav-center">
+        <Link to="/">Home</Link>
         <Link to="/login">Login</Link>
         <Link to="/register">Register</Link>
       </div>
+
+      <button className="start-btn">
+        Get Started
+      </button>
+
     </nav>
   );
 }
