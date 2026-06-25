@@ -1,18 +1,39 @@
+import "./Auth.css";
+
 function Register() {
   return (
-    <div className="container">
-      <h1>Create Account</h1>
+    <div className="auth-container">
 
-      <input type="text" placeholder="Name" />
-      <br /><br />
+      <div className="auth-card">
 
-      <input type="email" placeholder="Email" />
-      <br /><br />
+        <h1>Create Account</h1>
+        <p>Join CampusConnect today.</p>
 
-      <input type="password" placeholder="Password" />
-      <br /><br />
+        <form>
 
-      <button>Register</button>
+          <input
+            type="text"
+            placeholder="Full Name"
+          />
+
+          <input
+            type="email"
+            placeholder="Enter your email"
+          />
+
+          <input
+            type="password"
+            placeholder="Create password"
+          />
+
+          <button type="submit">
+            Register
+          </button>
+
+        </form>
+
+      </div>
+
     </div>
   );
 }

@@ -6,11 +6,11 @@ function Home() {
 
       <div className="hero-left">
 
-        <h3>Welcome to CampusConnect</h3>
+        <h2>Welcome to CampusConnect</h2>
 
-        <h1>
+        <h3>
           Connect. Learn. Grow.
-        </h1>
+        </h3>
 
         <p>
           Connect with seniors, find project teammates,
