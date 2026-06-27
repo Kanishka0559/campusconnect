@@ -14,6 +14,7 @@ function Register() {
           <input
             type="text"
             placeholder="Full Name"
+            onChange={(e) => setFullName(e.target.value)}
           />
 
           <input
@@ -24,6 +25,7 @@ function Register() {
           <input
             type="password"
             placeholder="Create password"
+            onChange={(e) => setPassword(e.target.value)}
           />
 
           <button type="submit">
