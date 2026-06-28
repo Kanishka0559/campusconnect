@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 
-function Navbar() {
+function Navbar({ isLoggedIn }) {
   return (
     <nav className="navbar">
 
@@ -11,13 +11,18 @@ function Navbar() {
 
       <div className="nav-center">
         <Link to="/">Home</Link>
-        <Link to="/login">Login</Link>
-        <Link to="/register">Register</Link>
-      </div>
 
-      <button className="start-btn">
-        Get Started
-      </button>
+        {!isLoggedIn ? (
+          <>
+            <Link to="/login">Login</Link>
+            <Link to="/register">Register</Link>
+          </>
+        ) : (
+          <>
+            <Link to="/profile">Profile</Link>
+          </>
+        )}
+      </div>
 
     </nav>
   );

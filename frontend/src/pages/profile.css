@@ -1,0 +1,96 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f5f7fb;
+}
+
+.profile-container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px;
+}
+
+.profile-card{
+    width:900px;
+    background:white;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+    overflow:hidden;
+}
+
+.profile-top{
+    background:#2563eb;
+    color:white;
+    text-align:center;
+    padding:40px;
+}
+
+.profile-image{
+    width:150px;
+    height:150px;
+    border-radius:50%;
+    border:5px solid white;
+    object-fit:cover;
+    margin-bottom:20px;
+}
+
+.profile-top h1{
+    font-size:32px;
+    margin-bottom:10px;
+}
+
+.college{
+    font-size:18px;
+    margin-bottom:20px;
+}
+
+.profile-top button{
+    padding:12px 25px;
+    border:none;
+    background:white;
+    color:#2563eb;
+    border-radius:8px;
+    font-size:16px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.profile-top button:hover{
+    background:#e5e7eb;
+}
+
+.profile-details{
+    padding:35px;
+}
+
+.detail-box{
+    margin-bottom:25px;
+    border-bottom:1px solid #ddd;
+    padding-bottom:18px;
+}
+
+.detail-box h3{
+    color:#2563eb;
+    margin-bottom:8px;
+}
+
+.detail-box p{
+    color:#444;
+    line-height:1.7;
+}
+
+.detail-box a{
+    text-decoration:none;
+    color:#2563eb;
+}
+
+.detail-box a:hover{
+    text-decoration:underline;
+}
