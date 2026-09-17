@@ -1,149 +1,79 @@
 import { useState } from "react";
-import "./Auth.css";
 
-function Register({ setIsLoggedIn }) {
+function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
 
-  const [nameError, setNameError] = useState("");
-  const [emailError, setEmailError] = useState("");
-  const [passwordError, setPasswordError] = useState("");
-  const [confirmPasswordError, setConfirmPasswordError] = useState("");
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    console.log("REGISTER BUTTON CLICKED");
+    try {
+      const response = await fetch("http://localhost:5000/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          password
+        })
+      });
 
-    setIsLoggedIn(true);
+      const data = await response.json();
 
-    navigate("/");
-
-    setNameError("");
-    setEmailError("");
-    setPasswordError("");
-    setConfirmPasswordError("");
-
-    let valid = true;
-
-    if (name.trim() === "") {
-      setNameError("Full name is required");
-      valid = false;
+      console.log(data);
+      if (response.ok) {
+        alert("Registration successful!");
+    } else {
+      alert("Registration failed!");
     }
-
-    if (email === "") {
-      setEmailError("Email is required");
-      valid = false;
-    } else if (!email.endsWith("@gmail.com")) {
-      setEmailError("Email must end with @gmail.com");
-      valid = false;
-    }
-
-    if (password === "") {
-      setPasswordError("Password is required");
-      valid = false;
-    } else if (password.length < 6) {
-      setPasswordError("Password must contain at least 6 characters");
-      valid = false;
-    }
-
-    if (confirmPassword === "") {
-      setConfirmPasswordError("Confirm your password");
-      valid = false;
-    } else if (password !== confirmPassword) {
-      setConfirmPasswordError("Passwords do not match");
-      valid = false;
-    }
-
-    if (valid) {
-      alert("Registration Successful");
+    } catch (error) {
+      console.error("Error:", error);
     }
   };
 
   return (
-    <div className="auth-container">
+    <div>
+      <h2>Create Account</h2>
 
-      <div className="auth-card">
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Enter Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
 
-        <h1>Create Account</h1>
+        <br />
+        <br />
 
-        <p>
-          Join CampusConnect and connect with students,
-          mentors and opportunities.
-        </p>
+        <input
+          type="email"
+          placeholder="Enter Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
 
-        <button className="google-btn" type="button">
-          <img
-            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg"
-            alt="google"
-          />
+        <br />
+        <br />
 
-          Continue with Google
+        <input
+          type="password"
+          placeholder="Enter Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+
+        <br />
+        <br />
+
+        <button type="submit">
+          Register
         </button>
-
-        <div className="divider">
-          <span>OR</span>
-        </div>
-
-        <form onSubmit={handleSubmit}>
-
-          <input
-            type="text"
-            placeholder="Full Name"
-            value={name}
-            onChange={(e)=>setName(e.target.value)}
-          />
-
-          {nameError && (
-            <p className="error">{nameError}</p>
-          )}
-
-          <input
-            type="email"
-            placeholder="College / Personal Email"
-            value={email}
-            onChange={(e)=>setEmail(e.target.value)}
-          />
-
-          {emailError && (
-            <p className="error">{emailError}</p>
-          )}
-
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e)=>setPassword(e.target.value)}
-          />
-
-          {passwordError && (
-            <p className="error">{passwordError}</p>
-          )}
-
-          <input
-            type="password"
-            placeholder="Confirm Password"
-            value={confirmPassword}
-            onChange={(e)=>setConfirmPassword(e.target.value)}
-          />
-
-          {confirmPasswordError && (
-            <p className="error">{confirmPasswordError}</p>
-          )}
-
-          <button className="register-btn" type="submit">
-            Create Account
-          </button>
-
-        </form>
-
-        <p className="bottom-text">
-          Already have an account?
-          <a href="/login"> Login</a>
-        </p>
-
-      </div>
-
+      </form>
     </div>
   );
 }
