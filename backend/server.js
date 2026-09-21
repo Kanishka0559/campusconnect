@@ -1,8 +1,14 @@
-const express = require("express");
+require("dotenv").config();
 
+const express = require("express");
+const connectDB = require("./config/db");
+const mongoose = require("mongoose");
 const app = express();
 
 const PORT = 5000;
+
+// Connect to MongoDB
+connectDB();
 
 // Middleware
 app.use(express.json());
@@ -12,14 +18,13 @@ app.get("/", (req, res) => {
   res.send("CampusConnect Backend Running");
 });
 
-// Register API
+// Register route
 app.post("/register", (req, res) => {
   const { name, email, password } = req.body;
 
   console.log("Registration Data:");
   console.log("Name:", name);
   console.log("Email:", email);
-  console.log("Password:", password);
 
   res.json({
     message: "Registration successful",
